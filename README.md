@@ -11,14 +11,14 @@ Adicione o arquivo warjs em seu projeto
 </pre>
 
 inicie a variavel e o metodo mount();
-<pre>
+```javascript
 var war;
     $(document).ready(function () {
 
         war = new warjs();
         war.mount();
     });
-</pre>
+```
 
 
 Principais funcionalidades
@@ -40,9 +40,9 @@ data-war-shot="{point:'self',class:'animate',limit:'50',delay:'1000'}"
 
 ## Menu
 
-<code>
+```html
 <a href="#" data-war-menu="{target:'#quemsomos',limit:100,limitMove:100}">Quem Somos</a>
-</code>
+```
 
 <ul>
     <li>class - class adicionada no modo ativo</li>
@@ -54,10 +54,10 @@ data-war-shot="{point:'self',class:'animate',limit:'50',delay:'1000'}"
 
 ## Size
 
-<pre>
+```html
 <section class="page home" data-war-size="{height:'$screenHeight',limitH:'600'}">
 </section>
-</pre>
+```
 
 <ul>
     <li>height - altura do elemento / podemos utilizar variaveis</li>

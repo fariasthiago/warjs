@@ -1,5 +1,5 @@
 # WarJs
-Javascript Framework
+Javascript Framework - 
 
 
 
@@ -41,7 +41,7 @@ data-war-shot="{point:'self',class:'animate',limit:'50',delay:'1000'}"
 ## Menu
 
 <pre>
-data-war-shot="{point:'self',class:'animate',limit:'50',delay:'1000'}"
+<a href="#" data-war-menu="{target:'#quemsomos',limit:100,limitMove:100}">Quem Somos</a>
 </pre>
 
 <ul>
@@ -55,13 +55,14 @@ data-war-shot="{point:'self',class:'animate',limit:'50',delay:'1000'}"
 ## Size
 
 <pre>
-data-war-shot="{point:'self',class:'animate',limit:'50',delay:'1000'}"
+<section class="page home" data-war-size="{height:'$screenHeight',limitH:'600'}">
+</section>
 </pre>
 
 <ul>
     <li>height - altura do elemento / podemos utilizar variaveis</li>
     <li>width - largura do elemento / podemos utilizar variaveis </li>
-    <li>limitH - tamanho maximo do elemento</li>
+    <li>limitH - tamanho minimo do elemento</li>
     <li>limitW - tamanho minimo do elemento</li>
 </ul>
 
@@ -70,12 +71,24 @@ data-war-shot="{point:'self',class:'animate',limit:'50',delay:'1000'}"
 ## War
 
 <pre>
-data-war-shot="{point:'self',class:'animate',limit:'50',delay:'1000'}"
+data-war="{ toplimit:'true', animate:['background-position-y',[0,100],['0','30'],'px']}"
 </pre>
 
 <ul>
-    <li>height - altura do elemento / podemos utilizar variaveis</li>
+    <li>toplimit - muda o limitador inicial do elemento</li>
+    <li>bottomlimit - muda o limitador final do elemento</li>
     <li>width - largura do elemento / podemos utilizar variaveis </li>
-    <li>limitH - tamanho maximo do elemento</li>
-    <li>limitW - tamanho minimo do elemento</li>
+    <li>parent - id do elemento pai caso tenha / os limitadores passam a ser o do parent</li>
+    <li>debug - true / false - exibe os limitadores </li>
 </ul>
+
+
+
+#Variaveis
+
+$screenHeight;
+$screenWidth;
+$parentWidth;
+$parentHeight;
+$parentWidthIn;
+$parentHeightIn;

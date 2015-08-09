@@ -1,0 +1,19 @@
+{
+  "name": "warjs",
+  "version": "0.0.1",
+  "main": "dist/js/warjs.min.js",
+  "ignore": [
+    "source",
+    "spec",
+    ".bowerrc",
+    ".gitignore",
+    ".jshintignore",
+    ".jshintrc",
+    "bower.json",
+    "gruntfile.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "jquery": ">=1.10.2"
+  }
+}

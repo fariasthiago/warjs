@@ -7,7 +7,7 @@ Javascript Framework -
 
 Adicione o arquivo warjs em seu projeto
 <pre>
-<script src="js/warjs.js"></script>
+&lt;script src="js/warjs.min..js"&gt;&lt;/script&gt;
 </pre>
 
 inicie a variavel e o metodo mount();

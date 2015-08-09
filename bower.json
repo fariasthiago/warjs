@@ -1,6 +1,6 @@
 {
   "name": "warjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/js/warjs.min.js",
   "ignore": [
     "source",
@@ -12,8 +12,5 @@
     "bower.json",
     "gruntfile.js",
     "package.json"
-  ],
-  "dependencies": {
-    "jquery": ">=1.10.2"
-  }
+  ]
 }

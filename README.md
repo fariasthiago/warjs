@@ -40,9 +40,9 @@ data-war-shot="{point:'self',class:'animate',limit:'50',delay:'1000'}"
 
 ## Menu
 
-<pre>
+<code>
 <a href="#" data-war-menu="{target:'#quemsomos',limit:100,limitMove:100}">Quem Somos</a>
-</pre>
+</code>
 
 <ul>
     <li>class - class adicionada no modo ativo</li>

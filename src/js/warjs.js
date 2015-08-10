@@ -39,7 +39,6 @@ var warjs = function () {
             var objeto = elements_size[obj].obj;
             if (elements_size[obj].height) {
                 var objH = parseInt(compileSintax(elements_size[obj].height));
-                //console.log(objH)
                 var hend = objH;
                 if (elements_size[obj].limitH && (elements_size[obj].limitH > objH)) {
                     hend = elements_size[obj].limitH;
@@ -58,31 +57,23 @@ var warjs = function () {
         render();
     }
 
-    /*   this.addIdElement = function (obj) {
-     console.log('obj id add');
-     var element = $('#' + obj);
-     elements[obj] = element;
-     render();
-     }*/
 
     function addShotClass(object, className, delay) {
         window.setTimeout(function () {
-
-            //   console.log('window settime out')
             object.obj.addClass(className);
 
         }, delay);
     }
+
     function removeShotClass(object, className, delay) {
         window.setTimeout(function () {
-            //   console.log('window settime out')
             object.obj.removeClass(className);
 
         }, delay);
     }
+
     function shotCallFunction(object, className, delay) {
         window.setTimeout(function () {
-            //   console.log('window settime out')
 
             if (typeof window[className] == "function") {
                 window[className](object);
@@ -103,7 +94,6 @@ var warjs = function () {
             var shotLimit = parseInt(compileSintax(elements_shot[objShot].limit));
             var objTemp = elements_shot[objShot];
             var objClass = objTemp.name;
-            // var className =
 
             if (objTemp.point == 'self') {
                 point = elements_shot[objShot].obj.offset().top;
@@ -112,14 +102,14 @@ var warjs = function () {
             }
 
 
-            if(objTemp.type == 'pin'){
+            if (objTemp.type == 'pin') {
 
                 if (scrollPosY >= point + shotLimit) {
-                    if(!objTemp.obj.hasClass(objClass)){
+                    if (!objTemp.obj.hasClass(objClass)) {
                         objTemp.obj.addClass(objClass)
                     }
                 } else {
-                    if(objTemp.obj.hasClass(objClass)){
+                    if (objTemp.obj.hasClass(objClass)) {
                         objTemp.obj.removeClass(objClass)
                     }
                 }
@@ -127,9 +117,9 @@ var warjs = function () {
             } else {
                 if ((scrollPosY + $screenHeight) >= point + shotLimit) {
 
-                    if(objTemp.type == 'addClass'){
+                    if (objTemp.type == 'addClass') {
                         addShotClass(objTemp, objClass, shotDelay);
-                    } else if(objTemp.type == 'removeClass'){
+                    } else if (objTemp.type == 'removeClass') {
                         removeShotClass(objTemp, objClass, shotDelay);
                     } else {
                         shotCallFunction(objTemp, objClass, shotDelay);
@@ -171,7 +161,6 @@ var warjs = function () {
 
         for (obj in elements) {
 
-            //   console.log(elements[obj]);
             var objeto = elements[obj].obj;
             var target = elements[obj].target;
             var porcIni = elements[obj].porc[0];
@@ -193,11 +182,8 @@ var warjs = function () {
                 $parentWidthIn = parent.innerWidth();
                 $parentHeight = parent.height();
                 $parentHeightIn = parent.innerHeight();
-            }
-            ;
+            };
 
-
-            //console.log(objeto,target,porcIni,porcEnd,variantIni,variantEnd,prefix,tipo);
 
             if (tipo == '') {
                 if (varElementInit.indexOf("px") > 0) {
@@ -208,15 +194,11 @@ var warjs = function () {
             }
 
             var objLimitTop = 0;
-
-            //console.log('teste:' + topLimit + ' ' + bottomLimit);
             if (topLimit != '') {
                 if (!isNaN(topLimit)) {
-                    //console.log('é um numero top limit');
                     objLimitTop = topLimit;
                 } else {
                     if (topLimit == 'true') {
-                        //console.log('o true esta ativo top limit');
                         objLimitTop = screenHeight;
                     }
                 }
@@ -239,15 +221,12 @@ var warjs = function () {
             var objHeight, objXinit, objXend, difInit, difEnd, porc;
 
             if (elements[obj].parent) {
-                if(parent.offset()){
+                if (parent.offset()) {
                     objHeight = parent.outerHeight();
                     objXinit = parent.offset().top - objLimitTop;// screenHeight;
 
-                    // objXend = objXinit + objHeight;
-                    // console.log('dados:'+objLimitTop);
                     difInit = scrollPosY - objXinit;
-                    // difEnd = objHeight;
-                } else{
+                } else {
                     console.log('Não foi possível detectar o parent ' + elements[obj].parent);
                 }
 
@@ -255,22 +234,16 @@ var warjs = function () {
             } else {
                 objHeight = objeto.outerHeight();
                 objXinit = objeto.offset().top - objLimitTop;
-
-                // console.log('dados:'+objLimitTop);
-                //objXend = objXinit + objHeight;
                 difInit = scrollPosY - objXinit;
 
             }
             difEnd = objHeight + Number(objLimitTop) - Number(objLimitBottom);
             porc = (difInit * 100) / difEnd;
 
-
-            // console.log(porc);
             if (porc <= porcIni) {
                 valorfinal = variantIni;
             }
             if (porc >= 0 && porc <= 100) {
-
 
                 if ((porc >= porcIni) && (porc <= porcEnd)) {
                     var newporc = porc - porcIni;
@@ -284,50 +257,20 @@ var warjs = function () {
             }
 
 
-            /**/
-
-
-            /*
-
-
-
-
-
-
-             if (elements[obj].bottomlimit == 'true') {
-             objXend += screenHeight;
-             objHeight += screenHeight;
-             }
-
-             //  if ((scrollPosY >= objXinit) && (scrollPosY <= objXend)) {
-
-
-             console.log(porctotal + ' >= '+  porcEnd)
-
-
-
-
-             */
             var itens = target.split(",");
             var sintaxCss = {};
             for (var x = 0; x < itens.length; x++) {
 
-                // console.log(objeto.css(itens[x]) + ' != ' +  (valorfinal) + tipo);
 
                 if (objeto.css(itens[x]) != (valorfinal) + tipo) {
                     sintaxCss[itens[x]] = prefix + (valorfinal) + tipo;
                     objeto.css(itens[x], prefix + (valorfinal) + tipo);
-                    // console.log(prefix + (valorfinal) + tipo);
-                } else {
-                    // console.log('igual');
                 }
             }
 
-            if(debug){
-                //debugtop_
-                console.log('testando o debug ',idObjeto);
-                $('#debugtop_obj'+idObjeto).css('top',objXinit+'px');
-                $('#debugbottom_obj'+idObjeto).css('top',(objXinit + difEnd)+'px');
+            if (debug) {
+                $('#debugtop_obj' + idObjeto).css('top', objXinit + 'px');
+                $('#debugbottom_obj' + idObjeto).css('top', (objXinit + difEnd) + 'px');
 
             }
 
@@ -361,7 +304,7 @@ var warjs = function () {
                 'point': dados.point,
                 'limit': limit,
                 'delay': delay,
-                'type':type
+                'type': type
             };
             elements_shot['obj' + objid] = objeto;
             objid++;
@@ -402,13 +345,12 @@ var warjs = function () {
             objid++;
             screenResize();
 
-            
+
         });
 
 
         $('[data-war-size]').each(function () {
             var element = $(this);
-            //console.log(element.data('war-size'));
             var dados = JSON.parse(Jsoncorrect(element.data('war-size')));
             var objeto = {
                 'obj': element,
@@ -435,7 +377,6 @@ var warjs = function () {
             var debug = false;
 
 
-            //onsole.log(dados.animate[i][0].toplimit);
             if (dados.toplimit) {
                 toplimit = dados.toplimit;
             }
@@ -470,10 +411,9 @@ var warjs = function () {
 
             if (debug) {
                 var objDataName = element.data('war-name');
-                console.log('adicionando o objeto no palco');
-                $('body').prepend('<div id="debugtop_' + objDataName +'" style="z-index:999; font-family:Arial;font-size: 12px; position: absolute; top: 10px; right: 10px;color: red;border-bottom: 1px solid red;    margin-top: -14px;">Limit Top - '+objDataName+'</div>')
+                $('body').prepend('<div id="debugtop_' + objDataName + '" style="z-index:999; font-family:Arial;font-size: 12px; position: absolute; top: 10px; right: 10px;color: red;border-bottom: 1px solid red;    margin-top: -14px;">Limit Top - ' + objDataName + '</div>')
                 //  $('body').prepend('<div id="debugtrigger_' + element.data('war-name') +'" style="z-index:999; font-family:Arial;font-size: 12px; position: absolute; top: 20px; right: 10px;color: blue;border-bottom: 1px solid blue;">Trigger</div>')
-                $('body').prepend('<div id="debugbottom_' + objDataName +'" style="z-index:999; font-family:Arial;font-size: 12px; position: absolute; top: 30px; right: 10px;color: green;border-bottom: 1px solid green;    margin-top: -14px;">Limit Bottom - '+ objDataName +'</div>')
+                $('body').prepend('<div id="debugbottom_' + objDataName + '" style="z-index:999; font-family:Arial;font-size: 12px; position: absolute; top: 30px; right: 10px;color: green;border-bottom: 1px solid green;    margin-top: -14px;">Limit Bottom - ' + objDataName + '</div>')
             }
 
         });
@@ -483,7 +423,7 @@ var warjs = function () {
     function addElementInArray(obj, target, porc, variant, parent, toplimit, bottomlimit, typevar, prefix, debug) {
         var objeto = {
             'obj': obj,
-            'idobj':objid,
+            'idobj': objid,
             'target': target,
             'porc': porc,
             'vars': variant,
@@ -492,9 +432,8 @@ var warjs = function () {
             'bottomlimit': bottomlimit,
             'typevar': typevar,
             'prefix': prefix,
-            'debug':debug
+            'debug': debug
         };
-        console.log('debug:',objeto.debug)
 
 
         obj.attr('data-war-name', 'obj' + objid);
@@ -526,7 +465,7 @@ var warjs = function () {
         $('html, body').animate({scrollTop: $(idpage).offset().top - limitMove}, 1000);
     }
 
-    this.moveTo = function(idpage, limitMove){
+    this.moveTo = function (idpage, limitMove) {
         moveTo(idpage, limitMove);
     }
 

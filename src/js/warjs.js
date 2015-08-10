@@ -495,4 +495,8 @@ var warjs = function () {
         moveTo(idpage, limitMove);
     }
 
+    this.resize = function(){
+        screenResize();
+    }
+
 }

@@ -4,21 +4,21 @@ Javascript Framework -
 
 
 ##Como usar
+```html
+bower install warjs
+```
 
 Adicione o arquivo warjs em seu projeto
 <pre>
 &lt;script src="js/warjs.min..js"&gt;&lt;/script&gt;
 </pre>
+ 
 
-ou 
 
-```html
-bower install warjs
-```
 
 inicie a variavel e o metodo mount();
 ```javascript
-var war;
+    var war;
     $(document).ready(function () {
 
         war = new warjs();
@@ -31,18 +31,24 @@ Principais funcionalidades
 
 ## Shot
 
-<pre>
-data-war-shot="{point:'self',class:'animate',limit:'50',delay:'1000'}"
-</pre>
+```html
+data-war-shot="{point:'self',name:'animate',limit:'50',delay:'1000'}"
+```
+```html
+<div class="form animated hideEl " data-war-shot="{point:'self',type:{addClass:'zoomInUp',removeClass:'hideEl'},limit:'$screenHeight/3'}">
+```
+```html
+<header class=" menu" data-war-shot="{point:'50', type:'pin', name:'active'}">
+```
 
 <ul>
-    <li>Point - numero referente a rolagem ou use self para pegar o top do elemento</li>
-    <li>Limit - numero que vai </li>
-    <li>Delay - tempo de espera para executar a ação</li>
-    <li>Name - o nome da class ou função</li>
-    <li>Type - addClass, removeClass ou function</li>
+    <li>point - numero referente a rolagem ou use self para pegar o top do elemento</li>
+    <li>limit - numero que vai </li>
+    <li>delay - tempo de espera para executar a ação</li>
+    <li>name - o nome da class ou função</li>
+    <li>type - pin, addClass, removeClass, function ou Objeto {addClass:'class',removeClass:'class',function:'Function_name'}</li>
 </ul>
-
+ 
 
 ## Menu
 

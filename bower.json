@@ -1,6 +1,6 @@
 {
   "name": "warjs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/js/warjs.min.js",
   "ignore": [
     "source",

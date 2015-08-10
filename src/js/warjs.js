@@ -38,7 +38,14 @@ var warjs = function () {
         for (obj in elements_size) {
             var objeto = elements_size[obj].obj;
             if (elements_size[obj].height) {
+
                 var objH = parseInt(compileSintax(elements_size[obj].height));
+                if(!objH){
+                    if($(elements_size[obj].height).length){
+                        objH = $(elements_size[obj].height).outerHeight(true);
+                    }
+                }
+
                 var hend = objH;
                 if (elements_size[obj].limitH && (elements_size[obj].limitH > objH)) {
                     hend = elements_size[obj].limitH;
@@ -298,16 +305,35 @@ var warjs = function () {
             if (dados.delay) {
                 delay = dados.delay;
             }
-            var objeto = {
-                'obj': element,
-                'name': dados.name,
-                'point': dados.point,
-                'limit': limit,
-                'delay': delay,
-                'type': type
-            };
-            elements_shot['obj' + objid] = objeto;
-            objid++;
+
+            var objeto = {};
+            if(typeof type == 'object'){
+                for(var item in type){
+                    objeto = {
+                        'obj': element,
+                        'name': type[item],
+                        'point': dados.point,
+                        'limit': limit,
+                        'delay': delay,
+                        'type': item
+                    };
+                    elements_shot['obj' + objid] = objeto;
+                    objid++;
+                }
+
+            } else {
+                objeto = {
+                    'obj': element,
+                    'name': dados.name,
+                    'point': dados.point,
+                    'limit': limit,
+                    'delay': delay,
+                    'type': type
+                };
+                elements_shot['obj' + objid] = objeto;
+                objid++;
+            }
+
             screenResize();
         });
 

@@ -1,5 +1,5 @@
 # WarJs
-Javascript Framework - 
+Javascript Framework - em desenvolvimento.
 
 
 

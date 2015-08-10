@@ -10,6 +10,12 @@ Adicione o arquivo warjs em seu projeto
 &lt;script src="js/warjs.min..js"&gt;&lt;/script&gt;
 </pre>
 
+ou 
+
+```html
+bower install warjs
+```
+
 inicie a variavel e o metodo mount();
 ```javascript
 var war;
